@@ -48,7 +48,7 @@ export default function Home() {
   }, [requiredCar]);
 
   return (
-    <main className='flex min-h-screen flex-col gap-8 p-8'>
+    <main className='flex min-h-screen flex-col gap-8 p-4'>
       <Navbar
         setRequiredCar={setRequiredCar}
         handleInputChange={handleInputChange}
@@ -57,11 +57,6 @@ export default function Home() {
       />
 
       <h1 className='text-5xl text-center capitalize'>{requiredCar ? requiredCar.maskingName : "No Car Selected"}</h1>
-      <div className='mockup-code'>
-        <pre>
-          <code>npm i daisyui</code>
-        </pre>
-      </div>
 
       <CarsList response={response} />
     </main>

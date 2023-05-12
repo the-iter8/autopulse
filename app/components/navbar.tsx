@@ -1,5 +1,8 @@
 "use client";
 import React from "react";
+// import { Icon360View } from "";/
+import { AiFillCar } from "react-icons/ai";
+import { Tb360View } from "react-icons/tb";
 type NavProps = {
   handleInputChange: (val: string) => void;
   currentModel: any;
@@ -9,9 +12,13 @@ type NavProps = {
 const Navbar = (props: NavProps) => {
   const { currentModel, handleInputChange, suggestions, setRequiredCar } = props;
   return (
-    <div className='navbar bg-base-100 mb-20'>
-      <div className='flex-1'>
-        <a className='btn btn-ghost normal-case text-xl'>AutoPulse</a>
+    <div className='navbar bg-base-100 mb-7'>
+      <div className='flex-1 gap-2'>
+        <a className='btn btn-ghost normal-case text-3xl' href='https://iter8.netlify.app/' target='_blank'>
+          AutoPulse
+        </a>
+        <AiFillCar size={40} />
+        <Tb360View size={40} />
       </div>
       <div className='flex-none gap-2'>
         {suggestions.length > 0 ? (

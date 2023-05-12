@@ -19,37 +19,45 @@ const Row = ({ item }: any) => {
 const CarsList = (props: CarsListProps) => {
   const { response } = props;
 
-  // console.log(obj[0].modelDetails.makeName, "Compan");
-  // console.log(obj[0].modelDetails.modelName);
-  // console.log(obj[0].nearByCities[0].name);
-  // console.log(obj[0].modelDetails.priceOverview.formattedPrice);
-  // console.log(obj[0].modelDetails.priceOverview.formattedPriceRangeText);
   return (
-    <div className='overflow-x-auto'>
-      <table className='table w-full'>
-        {/* head */}
-        <thead>
-          <tr>
-            <th>Model Name</th>
-            <th>Model Maker</th>
-            <th>City</th>
-            <th>Price Lower</th>
-            <th>Price Range</th>
-          </tr>
-        </thead>
-        <tbody>
-          {response.length > 0 ? (
-            response.map((item: any) => {
-              return <Row item={item} />;
-            })
-          ) : (
-            <tr className='hover'>
-              <td rowSpan={4}>No Cars Selected</td>
+    <>
+      <div className='mockup-code'>
+        <pre>
+          <code>
+            {response.length > 0
+              ? response.map((item: any) => {
+                  return `${(item?.minPrice / 100000).toFixed(2)} `;
+                })
+              : "No car selected"}
+          </code>
+        </pre>
+      </div>
+      <div className='overflow-x-auto'>
+        <table className='table w-full'>
+          {/* head */}
+          <thead>
+            <tr>
+              <th>Model Name</th>
+              <th>Model Maker</th>
+              <th>City</th>
+              <th>Price Lower</th>
+              <th>Price Range</th>
             </tr>
-          )}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {response.length > 0 ? (
+              response.map((item: any) => {
+                return <Row item={item} />;
+              })
+            ) : (
+              <tr className='hover'>
+                <td rowSpan={4}>No Cars Selected</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 };
 
