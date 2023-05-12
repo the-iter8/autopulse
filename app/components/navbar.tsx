@@ -23,6 +23,8 @@ const Navbar = (props: NavProps) => {
       <div className='flex-none gap-2'>
         {suggestions.length > 0 ? (
           suggestions.map((item: any, idx: number) => {
+            const bodyStyleName = item?.bodyStyles?.[0]?.Name || "Car";
+
             return (
               <div
                 key={idx}
@@ -32,15 +34,16 @@ const Navbar = (props: NavProps) => {
                 }}
               >
                 <div className='badge badge-xs bg-inherit outline-none border-none font-normal top-1 right-[0.2px] absolute '>
-                  {item.bodyStyles[0]?.Name ? item.bodyStyles[0].Name : "Car"}
+                  {bodyStyleName}
                 </div>
-                {item.makeMaskingName}-{item.maskingName}
+                {item?.makeMaskingName}-{item?.maskingName}
               </div>
             );
           })
         ) : (
           <div className='border-2 border-slate-500 p-[10px] text-sm rounded-lg'>Start Typing the model name -</div>
         )}
+
         <div className='form-control'>
           <input
             type='text'

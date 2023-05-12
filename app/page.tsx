@@ -1,6 +1,7 @@
 "use client";
 import Navbar from "./components/navbar";
 import CarsList from "./components/carslist";
+import Carousel from "./components/carousel";
 import { fetchData } from "./utils/helpers";
 import { CITY_IDS } from "./utils/constant";
 import { useEffect, useState } from "react";
@@ -22,9 +23,9 @@ export default function Home() {
       const response = await fetch(apiUrl);
       const data = await response.json();
       const result = data.slice(0, 3).map((item: any) => ({
-        bodyStyles: item.payload.bodyStyles,
-        maskingName: item.payload.maskingName,
-        makeMaskingName: item.payload.makeMaskingName,
+        bodyStyles: item?.payload.bodyStyles,
+        maskingName: item?.payload.maskingName,
+        makeMaskingName: item?.payload.makeMaskingName,
       }));
       setSuggestions(result);
     } catch (error) {
@@ -55,6 +56,7 @@ export default function Home() {
         currentModel={currentModel}
         suggestions={suggestions}
       />
+      <Carousel />
 
       <h1 className='text-5xl text-center capitalize'>{requiredCar ? requiredCar.maskingName : "No Car Selected"}</h1>
 

@@ -1,1 +1,1 @@
-export const CITY_IDS = [1, 2, 3];
+export const CITY_IDS = Array.from(Array(10).keys());

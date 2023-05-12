@@ -5,11 +5,9 @@ type CarsListProps = {
   response: any;
 };
 const Row = ({ item }: any) => {
-  console.log(item.userLocation.cityName);
   return (
     <tr className='hover'>
-      <th>{item?.modelDetails.makeName || "Not Found"}</th>
-      <td>{item?.modelDetails.modelName || "Not Found"}</td>
+      <th>{item?.modelDetails.makeName + "-" + item?.modelDetails.modelName}</th>
       <td>{item?.userLocation.cityName || "Not Found"}</td>
       <td>{item?.modelDetails.priceOverview.formattedPrice || "Not Found"}</td>
       <td>{item?.modelDetails.priceOverview.formattedPriceRangeText || "Not Found"}</td>
@@ -18,6 +16,7 @@ const Row = ({ item }: any) => {
 };
 const CarsList = (props: CarsListProps) => {
   const { response } = props;
+  console.log(response);
 
   return (
     <>
@@ -38,10 +37,10 @@ const CarsList = (props: CarsListProps) => {
           <thead>
             <tr>
               <th>Model Name</th>
-              <th>Model Maker</th>
+
               <th>City</th>
-              <th>Price Lower</th>
-              <th>Price Range</th>
+              <th>Price Range 1</th>
+              <th>Price Range 2</th>
             </tr>
           </thead>
           <tbody>
